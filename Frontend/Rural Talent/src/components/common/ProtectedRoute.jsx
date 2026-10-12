@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
 export const ProtectedRoute = ({ children, allowedRoles }) => {
@@ -24,5 +24,5 @@ export const ProtectedRoute = ({ children, allowedRoles }) => {
     return <Navigate to="/worker/dashboard" replace />;
   }
 
-  return children;
+  return children ? children : <Outlet />;
 };
